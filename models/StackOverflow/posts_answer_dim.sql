@@ -5,7 +5,7 @@ post_type_id,
 parent_id,
 answer_count,
 comment_count,
-favourite_count,
+favorite_count,
 score,
 tags
 
