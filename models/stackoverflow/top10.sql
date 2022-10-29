@@ -2,10 +2,11 @@ with base  as (
    with ans_top as(Select id, 
                           answer_count,
                           comment_count,
+                          favorite_count,
                           tags                           
                           from `rittman-stovflw.Rittman_dbt.posts_answer_dim`                           
-                           where favorite_count >=100 
-                           and comment_count is not null 
+                           where favorite_count >=1000
+                           and comment_count is not null                           
                            and tags is not null
                            order by answer_count asc
                            limit 100),
@@ -35,6 +36,7 @@ Select
       content.body,
       ans_top.answer_count,
       ans_top.comment_count,
+      ans_top.favorite_count,
       cast(time_d.creation_date as date) date_created,
       cast(time_d.last_activity_date as date) last_activity_date,
       owner.owner_user_id,
@@ -49,11 +51,12 @@ Select
       Inner join owner on owner.id = ans_top.id
       )
 
-Select id, 
+Select distinct id, 
        title,
        body,
        answer_count,
        comment_count,
+       favorite_count,
        date_created,
        base.last_activity_date,
        owner_user_id,
@@ -62,3 +65,7 @@ Select id,
       from base,
 
       unnest (subject_tags) as subject_tag
+
+      order by answer_count asc
+
+      limit 10
