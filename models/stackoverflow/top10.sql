@@ -27,7 +27,7 @@ with base  as (
         owner as (select id,
                          owner_user_id,
                          owner_display_name
-                         from `rittman-stovflw.Rittman_dbt.posts_owner_dim`),
+                         from `rittman-stovflw.Rittman_dbt.posts_owner_dim`)
 
       
                         
