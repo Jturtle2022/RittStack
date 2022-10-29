@@ -1,4 +1,4 @@
-WITH SPECBOD as(
+WITH SPECBODY as(
             (With base as (SELECT 
             id,
             REGEXP_REPLACE 
@@ -15,4 +15,4 @@ WITH SPECBOD as(
             Select id,
             REGEXP_REPLACE 
             (body, r"<a href>", "") as body
-            From SPECBOD
+            From SPECBODY
