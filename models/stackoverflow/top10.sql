@@ -16,16 +16,20 @@ with base  as (
                           last_activity_date 
                           from `rittman-stovflw.Rittman_dbt.posts_time_dim`),
                     
-        content as (Select id,
-                           title,
-                           body,
-                           score
-                           from `rittman-stovflw.Rittman_dbt.posts_content_dim`),
+        content as (Select CD.id,
+                           CD.title,
+                           BC.Body,
+                           CD.score
+                           from `rittman-stovflw.Rittman_dbt.posts_content_dim` as CD
+                           Inner join
+                           `rittman-stovflw.Rittman_dbt.bodycleansed` as BC on BC.id = CD.id),
 
         owner as (select id,
                          owner_user_id,
                          owner_display_name
                          from `rittman-stovflw.Rittman_dbt.posts_owner_dim`)
+
+      
                         
 
 
