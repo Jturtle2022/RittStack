@@ -3,6 +3,7 @@ with base  as (
                           answer_count,
                           comment_count,
                           favorite_count,
+                          view_count,
                           tags                           
                           from `rittman-stovflw.Rittman_dbt.posts_answer_dim`                           
                            where favorite_count >=1000
