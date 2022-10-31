@@ -64,7 +64,7 @@ Select distinct id,
        answer_count,
        comment_count,
        favorite_count,
-       view_count
+       view_count,
        date_created,
        base.last_activity_date,
        owner_user_id,
