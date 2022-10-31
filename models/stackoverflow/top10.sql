@@ -8,6 +8,7 @@ with base  as (
                            where favorite_count >=1000
                            and comment_count is not null                           
                            and tags is not null
+                           and view_count is not null
                            order by answer_count asc
                            limit 100),
 
@@ -41,6 +42,7 @@ Select
       ans_top.answer_count,
       ans_top.comment_count,
       ans_top.favorite_count,
+      ans_top.view_count,
       cast(time_d.creation_date as date) date_created,
       cast(time_d.last_activity_date as date) last_activity_date,
       owner.owner_user_id,
@@ -61,6 +63,7 @@ Select distinct id,
        answer_count,
        comment_count,
        favorite_count,
+       view_count
        date_created,
        base.last_activity_date,
        owner_user_id,

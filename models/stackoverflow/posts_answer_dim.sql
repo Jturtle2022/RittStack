@@ -7,6 +7,7 @@ answer_count,
 comment_count,
 favorite_count,
 score,
-tags
+tags,
+view_count
 
  from `bigquery-public-data.stackoverflow.stackoverflow_posts`
